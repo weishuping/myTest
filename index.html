@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html >
+    <head>
+        <title>123</title>
+        <style type="text/css">
+        /* 一个盒子包裹另一个盒子时，外层盒子如果没有设置padding或者border 那么里面的div的外边距将不会起作用 */
+        .father{width: 400px; height: 400px; background: pink; } 
+        .son{width: 200px; height: 200px; background: purple; margin-left: 100px; margin-top: 50px; } 
+        
+        .box {
+            height: 100%;
+            background: black
+        }
+        .left {
+            width: 200px;
+            height: 200px;
+            float: left;
+            background: red
+        }
+        .right {
+            width: 400px;
+            min-height: 100px;
+            background: green
+        }
+        .bfc {
+            overflow: hidden
+        }
+        </style>
+    </head>
+    <script type="text/javascript">
+        var num = 10
+    function aaaa(obj) {
+        document.write(num+obj)
+    }
+    
+
+    </script>
+    <body>
+        <!-- 两个元素的margin会重合，但是使用bfc之后会叠加 -->
+        <div style="height: 200px; width: 200px; border: 1px solid;">
+            <div style="height: 90px; border: 1px solid; margin-bottom: 10px;"></div>
+            <div>
+            <div style="height: 90px; border: 1px solid; margin-top: 10px;"></div>
+        </div>
+
+        </div>
+        <div class="father">
+                <div class="son"></div>
+        </div>
+        <textarea id="textarea" style="width: 386px; height: 260px">
+		</textarea>
+		<input type="text"  id="text"  />
+		<input type="button" value="插入" onclick="insertAtCursor(document.getElementById('textarea'),document.getElementById('text').value)" />
+
+        <button onclick="aaaa(1.5)">ffffffffffff</button>
+        <div class="box bfc">
+            <div class="left"></div>
+            <div class="right"></div>
+        </div>
+        <script src="./index.js"></script>
+    </body>
+</html>
