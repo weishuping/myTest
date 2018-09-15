@@ -37,26 +37,7 @@ const tranverse = (root) => {
 }
 
 //深度遍历  递归
-var nodes=[];//nodes必须放在函数外面
-function deepTraversal(node) { 
-    if(node!=null){
-        console.log(node.tagName)
-        var children=node.children; 
-        for(var i=0;i<children.length;i++){ 
-            deepTraversal(children[i]); 
-        } 
-    }
-} 
 
-function deep (rww) {
-    if(rww != null) {
-        console.log(rww.tagName)
-        var a = rww.children;
-        for(var i=0; i<a.length; i++) {
-            deep(a[i])
-        }
-    }
-}
 const deepTranverse = (root) => {
     if(root) {
         console.log(root.tagName)
