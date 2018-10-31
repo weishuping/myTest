@@ -21,9 +21,9 @@
             }
 
             .container {
-                /* width: 500px;
+                width: 500px;
                 display: flex;
-                align-items: stretch; */
+                align-items: stretch;
                 /* overflow: hidden;
                 width: 400px; */
                 /* position: relative;
@@ -40,6 +40,25 @@
                 top: 0;
                 bottom: 0; */
             }
+            .parent {
+                display: flex;
+                height: 200px;
+            }
+            .w_left, .w_right {
+                width: 100px;
+                background: red;
+            }   
+            .w_left {
+                order: 1;
+            }
+            .w_right {
+                order: 3;
+            }
+            .w_center {
+                flex: 1;
+                background: #000;
+                order:2
+            }
         </style>
     </head>
 
@@ -52,7 +71,7 @@
             </div>
             <p>2 Padding Margin互怼</p>
             <p>需要预估页面高度； 并且下方都被padding撑开 可能有影响</p>
-            <div id="parent">
+            <!-- <div id="parent">
                 <div class="row">
                     <div class="item">1</div>
                     <div class="item">2</div>
@@ -68,8 +87,18 @@
                     <div class="item">8</div>
                     <div class="item">9</div>
                 </div>
+            </div> -->
+            <p>flex 三列布局</p>
+            <div class="parent">
+                <div class="w_center">0</div>
+
+                <div class="w_left">1</div>
+                <div class="w_right">2</div>
             </div>
-            
+
+            <div style="width:0; height: 0; border: 20px solid transparent; border-top: 20px solid red">
+
+            </div>
             
     </body>
 </html>

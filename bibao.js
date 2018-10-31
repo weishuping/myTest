@@ -39,3 +39,41 @@ Promise.all(tasks).then(function() {
     }, 1000);
 })
 
+//二
+var arr = [];
+for(var i=0; i<3; i++) {
+    //  arr[i] = function(){
+    //      console.log(i)
+    //  }
+    //改写1  利用立即执行函数 开辟封闭的变量作用域环境
+    (function(i){
+        arr[i] = function(){
+            console.log(i)
+        }
+    })(i)
+    
+ }
+//  改写2 //利用let行程封闭作用域
+for(let i=0; i<3; i++) {
+     arr[i] = function(){
+         console.log(i)
+     }
+ }
+ //改写3 //利用了 参数传递  按值传递
+function getNumber(i) {
+    return function() {
+        console.log(i)
+    }
+}
+for(var i=0; i<3; i++) {
+    arr[i] = getNumber(i)
+}
+
+// this
+var foo = {
+    bar: function() {
+        console.log(this)
+        console.log(this === foo)
+    }
+}
+

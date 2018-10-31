@@ -63,7 +63,8 @@ function quickSort(arr, low, high) {
 function LCS(s1, s2) {
     var len1 = s1.length,
         len2 = s2.length,
-        arr = [new Array(len2+1).fill(0)];
+        arr = [new Array(len2+1).fill(0)],
+        a = []
         //初始化
     //构造二维数组
     
@@ -76,6 +77,14 @@ function LCS(s1, s2) {
                 arr[m][n] = arr[m-1][n-1] + 1;
             } else {
                 arr[m][n] = Math.max(arr[m][n-1], arr[m-1][n])
+            }
+        }
+        //输出
+        for(var k=m; k>0; k--) {
+            if(arr[k][n] == arr[k-1][n-1]) {
+                a[n] = 1;
+            } else{
+                n = n - 
             }
         }
 
@@ -92,16 +101,28 @@ function knapSack(n, w, values, weight) {
     var arr = [new Array(w+1).fill(0)], x = new Array(n)
     for(var i=1; i<=n ;i++) {//第几个商品 i+1行
         arr[i] = [0];
-        for(var j=1; j<=w; j++) {//背包容量
+        for(j=1; j<=w; j++) {//背包容量
             if(weight[i-1] > j) { //当前背包足以装下当前的重量吗？
                 arr[i][j] = arr[i-1][j]
             } else {
                 arr[i][j] = Math.max(arr[i-1][j], arr[i-1][j-weight[i-1]]+values[i-1])
             }
-            //
+            
         }
+        //
+        j=j-1
+            //输出
+            for(var k=n; k>0; k--) {
+                if(arr[k][j] == arr[k-1][j-1]) {
+                    a[n] = 1;
+                    j = j - weight[k-1]
+
+                } else{
+                    a[n] = 0;
+                }
+            }
     }
-    return arr;
+    return a;
 }
 // 0: (11) [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 // 1: (11) [0, 0, 6, 6, 6, 6, 6, 6, 6, 6, 6]
@@ -139,6 +160,23 @@ function SelectPivot(a, left, right)//选取基准值函数
     return a[left];
 }
 
-
+//从n个数字取出m个数 和为sum
+https://blog.csdn.net/cr496352127/article/details/79722566
+function findSum(a, n, sum) {
+    var arr = [new Array(sum+1).fill(0)]; arr[0][0] =1
+    for(var i=1; i<=n ;i++) {//第几个商品 i+1行
+        arr[i] = [1];
+        for(var j=1; j<=sum; j++) {//背包容量
+            if(j < a[i]) { //当前背包足以装下当前的重量吗？
+                arr[i][j] = arr[i-1][j]
+            } else {
+                arr[i][j] = arr[i-1][j]+arr[i-1][j-a[i]]
+            }
+            //
+        }
+    }
+    return arr;
+}
+//
 
 

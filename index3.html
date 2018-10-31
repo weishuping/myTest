@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="reset.css">
+</head>
+<style>
+.logo-box{
+    width: 600px;
+    margin: 100px auto;
+    font-size: 0;
+    position: relative;
+}
+.logo-box div{
+    display: inline-block;
+}
+.logo-box .logo-text{
+    margin-left: 10px;
+}
+.logo-box .logo1{
+    animation: logo1 1s ease-in 2s;
+    animation-fill-mode:backwards;
+}
+.logo-box .logo-text{
+    animation: logoText 1s ease-in 3s;
+    animation-fill-mode:backwards;
+}
+.logo-box .logo2{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    animation: logo2-middle 2s ease-in;
+}
+.logo-box .logo2 img{
+    animation: logo2-line 2s linear;
+}
+@keyframes logo1 {
+    0%{
+        transform:rotate(180deg);
+        opacity: 0;
+    }
+    100%{
+        transform:rotate(0deg);
+        opacity: 1;
+    }
+}
+@keyframes logoText {
+    0%{
+        transform:translateX(30px);
+        opacity: 0;
+    }
+    100%{
+        transform:translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes logo2-line {
+    0% { transform: translateX(200px)}
+    25% { transform: translateX(150px)}
+    50% { transform: translateX(100px)}
+    75% { transform: translateX(50px)}
+    100% { transform: translateX(0); }
+}
+
+@keyframes logo2-middle {
+    0% { transform: translateY(0);     }
+    25% { transform: translateY(-100px);     }
+    50% { transform: translateY(0);     }
+    75% { transform: translateY(-50px);     }
+    100% { transform: translateY(0); }
+}
+.circle {
+    width: 0;
+    height: 0;
+    border: 100px solid;
+    border-top: 100px solid red;
+    border-bottom: 100px solid red;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    transform: rotate(45deg);
+
+    border-radius: 50%;
+}
+.circle2 {
+    width: 80px;
+    height: 80px;
+}
+.circle2::after {
+    content: '';
+    width: 40px;
+    height: 40px;
+    display: block;
+    background: red;
+    border-bottom-left-radius: 100%;
+}
+.circle2::before {
+    content: '';
+    width: 40px;
+    height: 40px;
+    display: block;
+    background: red;
+    margin-left: 40px;
+    border-top-right-radius: 100%;
+}
+/* .circle2::after {
+    content: '';
+    border:40px solid red;
+    border-top: 40px solid transparent;
+    border-bottom: 40px solid transparent;
+    width: 0;
+    height: 0;
+} */
+.circle3:after{
+   content: "";
+    width: 6px;
+    height: 6px;
+    border-left: 1px solid #666;
+    border-bottom: 1px solid #666;
+    transform: rotate(225deg);
+    -webkit-transform: rotate(225deg);
+    position: absolute;
+    right: 9px;
+    top: 20px;
+}
+
+</style>
+<body>
+<div class="logo-box">
+<div class="logo1"><img src="logo1.jpg"/></div>
+<div class="logo2"><img src="logo2.jpg"/></div>
+<div class="logo-text"><img src="logo3.jpg"/></div>
+</div>
+
+<div class="wraper"><div class="item"></div></div>
+
+<div class="circle">
+</div>
+<span class="circle2"></span>
+<span class="circle3"></span>
+</body>
+</html>

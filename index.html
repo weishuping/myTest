@@ -12,22 +12,32 @@
              width: 200px;
             height: 200px;
             position: relative; */
+            width: 200px;
+            height: 200px;
             position: relative;
             background: red;
         }
         .son{
-            background: black;
             position: absolute;
-            margin: auto;
+            /* margin: auto;
             top: 0;
             bottom: 0;
             left: 0;
             right: 0;
-            /* top: 50%;
+            width: 90px;
+            height: 40px; */
+            /* 父子需要知道 宽高*/
+            top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%) */
+            transform: translate(-50%, -50%)
+            /* 父 需要知道 宽高 */
         }
-
+        /* 视窗居中 */
+        #son{
+            /*0如果去掉，则会多出滚动条并且上下都是50vh的margin。如果去掉就给body加上overflow:hidden;*/
+            margin: 50vh auto 0;  
+            transform: translateY(-50%);
+        }
 
         .box {
             height: 100%;
@@ -54,38 +64,38 @@
             color: blue;
         }
         #parent {
-    box-sizing: border-box;
-    height: 500px;
-    padding: 0 215px 0 115px;  /*为了使#center摆正,左右padding分别等于左右盒子的宽,可以结合左右盒子相对定位的left调整间距*/
-}
-#left {
-    margin-left: -100%;  /*使#left上去一行*/
-    position: relative;
-    left: -115px;  /*相对定位调整#left的位置,正值大于或等于自身宽度*/
-    float: left;
-    width: 100px;
-    height: 500px;
-    background-color: #f00;
-    opacity: 0.5;
-}
-#center {
-    float: left;
-    width: 100%;  /*由于#parent的padding,达到自适应的目的*/
-    height: 500px;
-    box-sizing: border-box;
-    border: 1px solid #000;
-    background-color: #eeff2b;
-}
-#right {
-    position: relative;
-    left: 215px; /*相对定位调整#right的位置,大于或等于自身宽度*/
-    width: 200px;
-    height: 500px;
-    margin-left: -200px;  /*使#right上去一行*/
-    float: left;
-    background-color: #0f0;
-    opacity: 0.5;
-}
+                box-sizing: border-box;
+                height: 500px;
+                padding: 0 215px 0 115px;  /*为了使#center摆正,左右padding分别等于左右盒子的宽,可以结合左右盒子相对定位的left调整间距*/
+            }
+            #left {
+                margin-left: -100%;  /*使#left上去一行*/
+                position: relative;
+                left: -115px;  /*相对定位调整#left的位置,正值大于或等于自身宽度*/
+                float: left;
+                width: 100px;
+                height: 500px;
+                background-color: #f00;
+                opacity: 0.5;
+            }
+            #center {
+                float: left;
+                width: 100%;  /*由于#parent的padding,达到自适应的目的*/
+                height: 500px;
+                box-sizing: border-box;
+                border: 1px solid #000;
+                background-color: #eeff2b;
+            }
+            #right {
+                position: relative;
+                left: 215px; /*相对定位调整#right的位置,大于或等于自身宽度*/
+                width: 200px;
+                height: 500px;
+                margin-left: -200px;  /*使#right上去一行*/
+                float: left;
+                background-color: #0f0;
+                opacity: 0.5;
+            }
 
 
 
@@ -114,8 +124,8 @@
                 <div id="left">左列定宽</div>
                 <div id="right">右列定宽</div>
             </div>
-            
-
+            <!-- /* 视窗居中 */ -->
+            <div id = "son">son</div>
 
             
             
