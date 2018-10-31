@@ -79,6 +79,52 @@ function binarySearch2(arr, target) {
     }
     return -1
 }
+
+//查找有序數組中最後一次出現的位置 
+var arr = [3,5,10,10,10,13,13,19,23]
+function binaryLastIndex(arr, target) {
+    var left = 0, right = arr.length-1, mid;
+
+    while(left <= right) {
+        mid = Math.floor((left+right)/2)
+        if(target == arr[mid]) {
+            if(arr[mid] != arr[mid+1]) {
+                return mid;
+            } else {
+                left = mid+1
+            }
+        } else if(target > arr[mid]) {
+            left = mid+1;
+        }else {
+            right = mid -1;
+        }
+        if(left == right) {
+            break;
+        }
+    }
+}
+//first
+function binaryFirstIndex(arr, target) {
+    var left = 0, right = arr.length-1, mid;
+
+    while(left <= right) {
+        mid = Math.floor((left+right)/2)
+        if(target == arr[mid]) {
+            if(arr[mid] != arr[mid-1]) {
+                return mid;
+            } else {
+                right = mid-1
+            }
+        } else if(target > arr[mid]) {
+            left = mid+1;
+        }else {
+            right = mid -1;
+        }
+        if(left == right) {
+            break;
+        }
+    }
+}
 var p = binarySearch2(myarr, 53)
 //函数按照值传递
 var o = {

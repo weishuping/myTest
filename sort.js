@@ -5,35 +5,6 @@ var arr = []
 //     arr.push(Math.floor(Math.random()*100+1))
 // }
 
-function quickSort(arr, left, right) {debugger
-    //临街情况
-    if(left > right) {
-        return false;
-    }
-    var i = left, j = right, parition = left;
-    while(i!=j) {
-        if(arr[j] >= arr[parition] && i<j) {
-            j--
-        }
-        if(arr[i] <=arr[parition] && i<j) {//左边应该从第几个位置开始
-            i++
-        }
-        //交换的条件 i<j
-        if(i <j) {
-            [arr[i], arr[j]] = [arr[j], arr[i]]
-        }
-
-    }
-    [arr[i], arr[parition]] = [arr[parition], arr[i]]
-
-    //递归过程
-    quickSort(arr, left, i-1)
-    quickSort(arr, i+1, right)
-
-}
-arr = [2,3,1]
-quickSort(arr, 0,3)
-
 //冒泡排序 未优化
 function bubble(sortArr) {
     var len = sortArr.length

@@ -13,7 +13,6 @@ let max2 = 0;
 //在newArr中找最大值
 for(var m =0; m<newArr.length; m++) {
     
-    debugger
     max2 += newArr[m][1]
     if(newmax2 > max2) {
         console.log(newmax2)
