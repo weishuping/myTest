@@ -84,7 +84,7 @@ function LCS(s1, s2) {
             if(arr[k][n] == arr[k-1][n-1]) {
                 a[n] = 1;
             } else{
-                n = n - 
+                n = n - 1
             }
         }
 
@@ -177,6 +177,78 @@ function findSum(a, n, sum) {
     }
     return arr;
 }
-//
+//写一个二维数组
+
+function Arr(m, n) {
+    var arr = []
+    for(var i=0; i<n; i++) {
+        arr[i] = [new Array(m).fill(0)]
+    }
+}
+
+var arr = [
+    [1,2,3,4,5],
+    [6,7,8,9,10],
+    [11,12,13,14,15],
+    [21,22,23,24,25],
+    [31,32,33,34,35],
+]
+var newArr = []
+function circle(row, col, m,n) {
+    if(row <=m && col <= n) {
+        for(var i =0 ; i<=m; i++) {
+            newArr.push(arr[row][i])
+        }
+        for(var j = row+1; j<=n; j++) {
+            newArr.push(arr[j][n])
+        }
+        //下行
+        for(var i2=n-1; i2>=col; i2--) {
+            newArr.push(arr[m][i2])
+
+        }
+        for(var j2=n-1; i2>=row+1; j2--) {
+            newArr.push(arr[j2][col])
+        }
+    }
+    else {
+        return;
+    }
+    circle(arr, row+1, col+1, m-1, n-1)
+    
+}
+var arr = [
+    [1,2,3,4,5],
+    [6,7,8,9,10],
+    [11,12,13,14,15],
+    [21,22,23,24,25],
+    [31,32,33,34,35],
+]
+var newArr = []
+function circle(row, col, m,n) {
+    if(row <=m && col <= n) {
+        for(var i =0 ; i<=m; i++) {
+            newArr.push(arr[row][i])
+        }
+        for(var j = row+1; j<=n; j++) {
+            newArr.push(arr[j][n])
+        }
+        //下行
+        for(var i2=n-1; i2>=col; i2--) {
+            newArr.push(arr[m][i2])
+
+        }
+        for(var j2=n-1; i2>=row+1; j2--) {
+            newArr.push(arr[j2][col])
+        }
+    }
+    else {
+        return;
+    }
+    circle(arr, row+1, col+1, m-1, n-1)
+    
+}
+https://blog.csdn.net/zz460833359/article/details/47958431
+
 
 
